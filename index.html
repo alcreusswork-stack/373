@@ -1,0 +1,834 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>リトルフェアリー新体操 蒲郡教室</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap">
+
+<style>
+/*
+  Layout: full-bleed hero image → hero copy → features → story → info → map → CTA
+  Design: Rose × Pearl × Deep Plum — feminine, warm, trustworthy
+*/
+
+/* ── Token System ── */
+:root {
+  --bg: #FFF8F6;
+  --bg2: #FFF0EC;
+  --fg: #2D1A1A;
+  --fg-mid: #6B4A4A;
+  --fg-sub: #9B7070;
+  --accent: #C4607A;
+  --accent-light: #F0B8C7;
+  --accent-dark: #8B3850;
+  --gold: #C9972A;
+  --surface: #FFFFFF;
+  --border: #F0D8D0;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(196,96,122,.10);
+
+  --font-disp: 'Playfair Display', Georgia, serif;
+  --font-body: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1C1014;
+    --bg2: #241518;
+    --fg: #F5E8E8;
+    --fg-mid: #D4AEB0;
+    --fg-sub: #A88085;
+    --accent: #E07A94;
+    --accent-light: #6B2E42;
+    --accent-dark: #F0A8BC;
+    --gold: #E4B84A;
+    --surface: #2C1A1E;
+    --border: #4A2830;
+    --shadow: 0 4px 20px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1C1014;
+  --bg2: #241518;
+  --fg: #F5E8E8;
+  --fg-mid: #D4AEB0;
+  --fg-sub: #A88085;
+  --accent: #E07A94;
+  --accent-light: #6B2E42;
+  --accent-dark: #F0A8BC;
+  --gold: #E4B84A;
+  --surface: #2C1A1E;
+  --border: #4A2830;
+  --shadow: 0 4px 20px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.8;
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Inner wrapper ── */
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* ── Header ── */
+.site-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding-block: 14px;
+}
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.header-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: .03em;
+  text-decoration: none;
+}
+.header-name:hover { text-decoration: underline; color: var(--accent); }
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: background .2s;
+  text-decoration: none;
+}
+.header-cta:hover { background: var(--accent-dark); text-decoration: none; color: #fff; }
+
+/* ── Hero Image ── */
+.hero-image {
+  width: 100%;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg2) 100%);
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+@media (max-width: 480px) {
+  .hero-image { aspect-ratio: 4/3; }
+}
+
+/* ── Hero Copy ── */
+.hero-copy {
+  background: var(--bg2);
+  padding-block: 40px;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.hero-headline {
+  font-family: var(--font-disp);
+  font-size: clamp(26px, 6vw, 42px);
+  line-height: 1.25;
+  color: var(--fg);
+  text-wrap: balance;
+  margin-bottom: 14px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-sub {
+  font-size: 15px;
+  color: var(--fg-mid);
+  max-width: 520px;
+  margin: 0 auto 24px;
+  text-wrap: balance;
+}
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); text-decoration: none; color: #fff; }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn-secondary:hover { background: var(--bg2); text-decoration: none; }
+
+/* ── Section common ── */
+.section { padding-block: 56px; }
+.section-alt { background: var(--bg2); }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--font-disp);
+  font-size: clamp(22px, 4.5vw, 32px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--fg);
+  text-wrap: balance;
+  margin-bottom: 8px;
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--fg-mid);
+  max-width: 500px;
+  margin-bottom: 36px;
+  text-wrap: balance;
+}
+
+/* ── Feature Cards (イチオシ) ── */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+.feature-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.feature-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.feature-body {
+  font-size: 13px;
+  color: var(--fg-mid);
+  line-height: 1.75;
+}
+
+/* ── Highlight Feature (体験レッスン誘導) ── */
+.highlight-band {
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+  padding-block: 48px;
+  text-align: center;
+  color: #fff;
+}
+.highlight-band .inner { padding-block: 0; }
+.hl-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin-bottom: 8px;
+}
+.hl-title {
+  font-family: var(--font-disp);
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+.hl-body {
+  font-size: 14px;
+  opacity: .88;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  text-wrap: balance;
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--accent-dark);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity .2s, transform .15s;
+}
+.btn-white:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+
+/* ── Founder Story ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (max-width: 560px) {
+  .story-grid { grid-template-columns: 1fr; }
+}
+.story-avatar {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.story-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-top: 8px;
+  text-align: center;
+}
+.story-role {
+  font-size: 12px;
+  color: var(--fg-sub);
+  text-align: center;
+}
+.story-body {
+  font-size: 14px;
+  color: var(--fg-mid);
+  line-height: 1.9;
+}
+.story-body p + p { margin-top: 14px; }
+
+/* ── Reviews ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+.review-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.review-stars {
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.review-text {
+  font-size: 13px;
+  color: var(--fg-mid);
+  line-height: 1.75;
+}
+
+/* ── Coming Soon ── */
+.coming-card {
+  background: var(--surface);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+.coming-badge {
+  display: inline-block;
+  background: var(--bg2);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  border: 1px solid var(--accent-light);
+}
+.coming-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.coming-body {
+  font-size: 13px;
+  color: var(--fg-mid);
+}
+
+/* ── Info Table ── */
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.info-table tr { border-bottom: 1px solid var(--border); }
+.info-table tr:last-child { border-bottom: none; }
+.info-table th {
+  width: 110px;
+  padding: 14px 12px 14px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.info-table td {
+  padding: 14px 0;
+  color: var(--fg-mid);
+  line-height: 1.75;
+}
+@media (max-width: 400px) {
+  .info-table th { width: 90px; font-size: 12px; }
+  .info-table td { font-size: 13px; }
+}
+
+/* ── Map ── */
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 340px;
+}
+.map-btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--surface);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background .2s;
+}
+.map-btn:hover { background: var(--bg2); text-decoration: none; }
+
+/* ── Contact CTA ── */
+.cta-section {
+  background: var(--bg2);
+  text-align: center;
+  padding-block: 56px;
+}
+.cta-title {
+  font-family: var(--font-disp);
+  font-size: clamp(22px, 5vw, 32px);
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 10px;
+  text-wrap: balance;
+}
+.cta-body {
+  font-size: 14px;
+  color: var(--fg-mid);
+  margin-bottom: 28px;
+}
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tel-display {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+}
+.tel-note {
+  font-size: 12px;
+  color: var(--fg-sub);
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--fg);
+  color: rgba(245,232,232,.75);
+  padding-block: 36px;
+  font-size: 13px;
+}
+.site-footer .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+.footer-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(245,232,232,.95);
+  margin-bottom: 4px;
+}
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer-links a {
+  color: rgba(245,232,232,.75);
+  font-size: 13px;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--accent-light); text-decoration: none; }
+.footer-sns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(245,232,232,.12);
+  transition: background .2s;
+  text-decoration: none;
+}
+.sns-link:hover { background: rgba(245,232,232,.22); }
+.sns-link svg { fill: rgba(245,232,232,.85); }
+.footer-copy {
+  font-size: 11px;
+  color: rgba(245,232,232,.4);
+}
+
+/* ── Ribbon badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg2);
+  color: var(--accent);
+  border: 1px solid var(--accent-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+/* ── Accessibility ── */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<!-- ════ HEADER ════ -->
+<header class="site-header">
+  <div class="inner">
+    <a href="https://www.little-fairy-rg.club/" target="_blank" rel="noopener" class="header-name">
+      リトルフェアリー新体操 蒲郡教室
+    </a>
+    <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener" class="header-cta">
+      ✦ 体験レッスン申込
+    </a>
+  </div>
+</header>
+
+<!-- ════ HERO IMAGE ════ -->
+<div class="hero-image">
+  <img src="images/hero.png" alt="リトルフェアリー新体操 蒲郡教室 — 演技する生徒たち">
+</div>
+
+<!-- ════ HERO COPY ════ -->
+<section class="hero-copy">
+  <div class="inner">
+    <p class="hero-eyebrow">愛知県蒲郡市の新体操教室</p>
+    <h1 class="hero-headline">
+      <em>楽しく上達する</em>、<br>それがリトルフェアリー。
+    </h1>
+    <p class="hero-sub">
+      リボンやボールを使い、音楽に合わせてリズムよく踊る。週1回から始められる、初めてでも安心の新体操教室です。
+    </p>
+    <div class="hero-buttons">
+      <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener" class="btn-primary">
+        ✦ 体験レッスンを申し込む
+      </a>
+      <a href="https://www.little-fairy-rg.club/" target="_blank" rel="noopener" class="btn-secondary">
+        公式サイトを見る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FEATURES (イチオシ) ════ -->
+<section class="section">
+  <div class="inner">
+    <p class="section-label">Our Features</p>
+    <h2 class="section-title">えらばれる5つの理由</h2>
+    <p class="section-desc">初心者でも、続けられなかった子でも。一人ひとりに寄り添う指導で、自信と表現力を育てます。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎀</div>
+        <div class="feature-title">楽しく上達する指導</div>
+        <div class="feature-body">リボンやボールを使い、音楽に合わせてリズムよく踊る楽しさを大切にしています。技術だけでなく、豊かな表現力や前向きな心を育むことに力を入れています。</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌸</div>
+        <div class="feature-title">無理なく続けられる環境</div>
+        <div class="feature-body">週1回・約1時間の練習で、初心者や他の教室で続かなかった子でも楽しく通えるよう工夫しています。お子さまのペースを大切にします。</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-title">礼儀と心身の成長</div>
+        <div class="feature-body">挨拶やマナー、体幹の強化、柔軟性の向上を重視した指導で、姿勢が整う効果も期待できます。礼儀正しく、心も体も育ちます。</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <div class="feature-title">発表会</div>
+        <div class="feature-body">定期的な目標があることで、度胸や忍耐力、仲間との団結力が自然と身に付きます。舞台に立つ経験は、大きな自信につながります。</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💛</div>
+        <div class="feature-title">寄り添う講師陣</div>
+        <div class="feature-body">子どもと同じ目線に立ち、できなかったことが努力でできるようになる喜びを一緒に分かち合います。一人ひとりの成長を丁寧にサポートします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ HIGHLIGHT BAND ════ -->
+<div class="highlight-band">
+  <div class="inner">
+    <p class="hl-label">Trial Lesson</p>
+    <h2 class="hl-title">まずは体験レッスンから</h2>
+    <p class="hl-body">
+      「うちの子に合うかな？」と迷っているお父さん・お母さんへ。
+      体験レッスンで、教室の雰囲気をお気軽にお試しください。
+    </p>
+    <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener" class="btn-white">
+      体験レッスンを申し込む →
+    </a>
+  </div>
+</div>
+
+<!-- ════ FOUNDER STORY ════ -->
+<section class="section section-alt">
+  <div class="inner">
+    <p class="section-label">Founder's Story</p>
+    <h2 class="section-title">創業者について</h2>
+    <div class="story-grid">
+      <div>
+        <div class="story-avatar">🩰</div>
+        <p class="story-name">三浦 都巳子</p>
+        <p class="story-role">代表・指導者</p>
+      </div>
+      <div class="story-body">
+        <p>三浦都巳子は、スポーツクラブの社員として勤務した後、「自分が理想とする指導をしたい」という想いからリトルフェアリー新体操を設立しました。</p>
+        <p>東三河地域を中心に、「楽しく上達する」をモットーとした教室を展開。長年の経験を活かし、子どもたちが音楽に合わせて輝ける場を広げ続けています。</p>
+        <p>競技だけが新体操ではない——そんな考えのもと、一人ひとりの表現を大切にしながら、蒲郡でも新しい取り組みを始めています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ════ COMING SOON ════ -->
+<section class="section section-alt">
+  <div class="inner">
+    <p class="section-label">Coming Soon</p>
+    <h2 class="section-title">準備中のサービス</h2>
+    <div class="coming-card">
+      <span class="coming-badge">近日公開</span>
+      <p class="coming-title">表現としての新体操を、動画・写真で残す取り組み</p>
+      <p class="coming-body">
+        競技だけが新体操ではないという考えのもと、子どもたちの演技を動画・写真で記録し、大切な思い出として残していく新しい取り組みを準備中です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ INFO ════ -->
+<section class="section">
+  <div class="inner">
+    <p class="section-label">Access & Info</p>
+    <h2 class="section-title">教室案内</h2>
+    <table class="info-table">
+      <tbody>
+        <tr>
+          <th>教室名</th>
+          <td>リトルフェアリー新体操 蒲郡教室</td>
+        </tr>
+        <tr>
+          <th>開校日</th>
+          <td>火曜日・金曜日</td>
+        </tr>
+        <tr>
+          <th>住所</th>
+          <td>〒443-0004 愛知県蒲郡市平田町上五反田３−１</td>
+        </tr>
+        <tr>
+          <th>電話</th>
+          <td>
+            <a href="tel:080-9892-5660">080-9892-5660</a><br>
+            <span style="font-size:12px; color:var(--fg-sub);">教室へのお問い合わせ（代表）</span>
+          </td>
+        </tr>
+        <tr>
+          <th>公式サイト</th>
+          <td><a href="https://www.little-fairy-rg.club/" target="_blank" rel="noopener">www.little-fairy-rg.club</a></td>
+        </tr>
+        <tr>
+          <th>Instagram</th>
+          <td><a href="https://www.instagram.com/littlefairy.rg/" target="_blank" rel="noopener">@littlefairy.rg</a></td>
+        </tr>
+        <tr>
+          <th>お問い合わせ</th>
+          <td><a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener">お問い合わせフォーム</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════ MAP ════ -->
+<section class="section section-alt">
+  <div class="inner">
+    <p class="section-label">Map</p>
+    <h2 class="section-title" style="margin-bottom:20px;">アクセスマップ</h2>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3275.060132352599!2d137.2383333!3d34.8295806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6004c719099f4703%3A0xcc68b9bf2b225e0f!2z44Oq44OI44Or44OV44Kn44Ki44Oq44O85paw5L2T5pONIOiSsumDoeaVmeWupA!5e0!3m2!1sja!2sjp!4v1792991891286!5m2!1sja!2sjp"
+        height="340"
+        style="border:0; width:100%;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="リトルフェアリー新体操 蒲郡教室 地図">
+      </iframe>
+    </div>
+    <a
+      href="https://www.google.com/maps/place/%E3%83%AA%E3%83%88%E3%83%AB%E3%83%95%E3%82%A7%E3%82%A2%E3%83%AA%E3%83%BC%E6%96%B0%E4%BD%93%E6%93%8D+%E8%92%B2%E9%83%A1%E6%95%99%E5%AE%A4/@34.8295806,137.2383333,17z/data=!3m1!4b1!4m6!3m5!1s0x6004c719099f4703:0xcc68b9bf2b225e0f!8m2!3d34.8295806!4d137.2383333!16s%2Fg%2F11h4c98bt8?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D"
+      target="_blank" rel="noopener"
+      class="map-btn">
+      📍 Googleマップで見る
+    </a>
+  </div>
+</section>
+
+<!-- ════ CONTACT CTA ════ -->
+<section class="cta-section">
+  <div class="inner">
+    <p class="section-label">Contact</p>
+    <h2 class="cta-title">まずはお気軽にご相談ください</h2>
+    <p class="cta-body">体験レッスンのご予約・ご質問はこちらから。お子さまの「やってみたい！」を大切にします。</p>
+    <div class="cta-buttons">
+      <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener" class="btn-primary">
+        ✦ 体験レッスンを申し込む
+      </a>
+      <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener" class="btn-secondary">
+        お問い合わせ
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="site-footer">
+  <div class="inner">
+    <div>
+      <p class="footer-name">リトルフェアリー新体操 蒲郡教室</p>
+      <p>〒443-0004 愛知県蒲郡市平田町上五反田３−１</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.little-fairy-rg.club/" target="_blank" rel="noopener">公式サイト</a>
+      <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener">体験レッスン</a>
+      <a href="https://www.little-fairy-rg.club/contact.html" target="_blank" rel="noopener">お問い合わせ</a>
+    </div>
+    <div class="footer-sns">
+      <!-- Instagram official icon (SVG) -->
+      <a href="https://www.instagram.com/littlefairy.rg/" target="_blank" rel="noopener" class="sns-link" aria-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-copy">© 2024 リトルフェアリー新体操 蒲郡教室. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body></html>
